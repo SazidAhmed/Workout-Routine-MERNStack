@@ -5,8 +5,10 @@ const dotenv = require('dotenv').config();
 const { errorHandler } = require('./app/Middleware/ErrorMiddleware');
 const connectDB = require('./config/db');
 
+//server port 
 const port = process.env.PORT || 5000;
 
+//DB Connection
 connectDB();
 
 const app = express();
@@ -30,11 +32,15 @@ const corsOptions = {
 // use cors and add options
 app.use(cors(corsOptions));
 
+//to get client data as json
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 
+//Routes
 app.use('/api', require('./routes/api'))
 
+//Error handler
 app.use(errorHandler)
 
+//if port is active
 app.listen(port, ()=> console.log(`Runing on port ${port}`))
