@@ -1,0 +1,4 @@
+$ npm i express dotenv mongoose colors cors
+$ npm i -D nodemon
+$ npm i bcryptjs
+$ npm i jsonwebtoken
